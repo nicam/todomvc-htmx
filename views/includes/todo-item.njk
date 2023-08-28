@@ -2,6 +2,7 @@
   <div class="view">
     <input
       class="toggle"
+      aria-label="Toggle todo"
       type="checkbox" {{ 'checked' if todo.done }}
       hx-patch="/todos/{{ todo.id }}"
       hx-target="#todo-{{ todo.id }}"
