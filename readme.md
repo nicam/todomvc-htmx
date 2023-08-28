@@ -27,9 +27,9 @@
 
 ## Implementation
 
-This app was created as [express](https://expressjs.com)(Node.js) app in the backend and 
-**No Javascript code** in the frontend, thanks to [htmx](https://htmx.org) and [hyperscript](https://hyperscript.org).
+This app was created as [express](https://expressjs.com)(Node.js) app in the backend and
+**No Javascript code** in the frontend, thanks to [htmx](https://htmx.org).
 
 ## Credit
 
-Created by [Rajasegar Chandran](https://twitter.com/rajasegar_c)
+Originally created by [Rajasegar Chandran](https://twitter.com/rajasegar_c). Forked by [Pascal Helfenstein](https://twitter.com/nicam)
