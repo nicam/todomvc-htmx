@@ -1,0 +1,11 @@
+<ul class="filters" id="filters" hx-swap-oob="true" hx-target="#todo-list">
+  <li>
+    <a hx-get="/?filter=all" href="/?filter=all" class="{{'selected' if filter == 'all'}}">All</a>
+  </li>
+  <li>
+    <a hx-get="/?filter=active" href="/?filter=active" class="{{'selected' if filter == 'active'}}">Active</a>
+  </li>
+  <li>
+    <a hx-get="/?filter=completed" href="/?filter=completed" class="{{'selected' if filter == 'completed'}}">Completed</a>
+  </li>
+</ul>

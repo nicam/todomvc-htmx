@@ -28,17 +28,7 @@
 
       <footer class="footer">
         {% include "includes/item-count.njk" %}
-        <ul class="filters">
-          <li>
-            <a href="/?filter=all" class="{{'selected' if filter == 'all'}}">All</a>
-          </li>
-          <li>
-            <a href="/?filter=active" class="{{'selected' if filter == 'active'}}">Active</a>
-          </li>
-          <li>
-            <a href="/?filter=completed" class="{{'selected' if filter == 'completed'}}">Completed</a>
-          </li>
-        </ul>
+        {% include "includes/filter.njk" %}
         <button class="clear-completed" hx-post="/todos/clear-completed" hx-target="#todo-list">Clear completed</button>
       </footer>
     </section>

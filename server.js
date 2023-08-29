@@ -7,12 +7,12 @@ const PORT = process.env.PORT || 3000;
 let todos = [
   {
     id: uuid(),
-    name: 'Taste htmx',
+    name: 'Prepare htmx talk',
     done: true
   },
   {
     id: uuid(),
-    name: 'Buy a unicorn',
+    name: 'Hold htmx talk',
     done: false
   }
 ];
@@ -47,9 +47,9 @@ app.get('/', (req, res) => {
     default:
       filteredTodos = todos;
   }
-  if (req.headers['htmx-request']) {
+  if (req.headers['hx-request']) {
     let markup = nunjucks.render('includes/todo-list.njk', { todos: filteredTodos });
-    markup += nunjucks.render('includes/item-count.njk', { itemsLeft: getItemsLeft()});
+    markup += nunjucks.render('includes/filter.njk', { filter });
     res.send(markup);
   } else {
     res.render('index.njk', { todos: filteredTodos, filter, itemsLeft: getItemsLeft() });
@@ -61,7 +61,7 @@ app.post('/todos', (req, res) => {
   const newTodo = { id: uuid(), name: todo, done: false };
   todos.unshift(newTodo);
   let markup = nunjucks.render('includes/todo-item.njk', { todo: newTodo });
-  markup  += nunjucks.render('includes/item-count.njk', { itemsLeft: getItemsLeft()});
+  markup  += nunjucks.render('includes/item-count.njk', { itemsLeft: getItemsLeft() });
   res.send(markup);
 });
 
@@ -77,7 +77,7 @@ app.patch('/todos/:id', (req, res) => {
   const todo = todos.find(t => t.id === id);
   todo.done = !todo.done;
   let markup = nunjucks.render('includes/todo-item.njk', { todo });
-  markup  += nunjucks.render('includes/item-count.njk', { itemsLeft: getItemsLeft()});
+  markup  += nunjucks.render('includes/item-count.njk', { itemsLeft: getItemsLeft() });
   res.send(markup);
 });
 
@@ -94,7 +94,7 @@ app.delete('/todos/:id', (req,res) => {
   const { id } = req.params;
   const idx = todos.find(t => t === id);
   todos.splice(idx, 1);
-  const markup = nunjucks.render('includes/item-count.njk', { itemsLeft: getItemsLeft()});
+  const markup = nunjucks.render('includes/item-count.njk', { itemsLeft: getItemsLeft() });
   res.send(markup);
 });
 
@@ -102,7 +102,7 @@ app.post('/todos/clear-completed', (req, res) => {
   const newTodos = todos.filter(t => !t.done);
   todos = [...newTodos];
   let markup = nunjucks.render('includes/todo-list.njk', { todos });
-  markup += nunjucks.render('includes/item-count.njk', { itemsLeft: getItemsLeft()});
+  markup += nunjucks.render('includes/item-count.njk', { itemsLeft: getItemsLeft() });
   res.send(markup);
 });
 
@@ -113,7 +113,7 @@ app.post('/todos/toggle-all', (req, res) => {
   const done = !todos[0].done;
   todos = todos.map(todo => ({ ...todo, done: done }) );
   let markup = nunjucks.render('includes/todo-list.njk', { todos });
-  markup += nunjucks.render('includes/item-count.njk', { itemsLeft: getItemsLeft()});
+  markup += nunjucks.render('includes/item-count.njk', { itemsLeft: getItemsLeft() });
   res.send(markup);
 });
 
