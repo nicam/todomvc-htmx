@@ -30,6 +30,9 @@
 This app was created as [express](https://expressjs.com)(Node.js) app in the backend and
 **No Javascript code** in the frontend, thanks to [htmx](https://htmx.org).
 
+## Performance
+![todomvc htmx lighthouse score](lighthouse.png)
+
 ## Credit
 
 Originally created by [Rajasegar Chandran](https://twitter.com/rajasegar_c). Forked by [Pascal Helfenstein](https://twitter.com/nicam)
