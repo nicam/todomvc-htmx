@@ -13,7 +13,7 @@
       <header class="header">
         <h1 id="todos">Todos</h1>
         <form hx-post="/todos" hx-target="#todo-list" hx-swap="afterbegin" hx-on::after-request="txtTodo.value = ''">
-          <input id="txtTodo" class="new-todo" name="todo" placeholder="What needs to be done?" autofocus="">
+          <input id="txtTodo" class="new-todo" name="todo" placeholder="What needs to be done?" autofocus>
         </form>
       </header>
       <section class="main">
