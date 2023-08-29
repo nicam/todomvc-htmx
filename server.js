@@ -86,8 +86,7 @@ app.post('/todos/update/:id', (req, res) => {
   const { name } = req.body;
   const todo = todos.find(t => t.id === id);
   todo.name = name;
-  let markup = nunjucks.render('includes/todo-item.njk', {todo: todo});
-  markup  += nunjucks.render('includes/item-count.njk', { itemsLeft: getItemsLeft()});
+  const markup = nunjucks.render('includes/todo-item.njk', { todo: todo });
   res.send(markup);
 });
 
